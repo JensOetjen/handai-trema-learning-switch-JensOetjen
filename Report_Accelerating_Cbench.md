@@ -9,7 +9,7 @@ Student Number: 33E16024 <br />
 To determine to the bottleneck of cbench, a profiler needs to be used that shows how much
 time the program requires. The output by the profiler features how much time is spent in the functions.
 By doing this, bottlenecks can be discovered. I used the profiler "ruby prof". After identifying
-the bottleneck, I optimized the program to shorten its runtime.
+the bottleneck, I explain the code of the faster version of Cbench.
 
 ## 2 Using ruby-prof ##
 
@@ -32,7 +32,16 @@ The resulting output-file can be found at:
 
 [Output-File](https://github.com/JensOetjen/handai-trema-learning-switch-JensOetjen/blob/master/output_of_ruby_prof_.txt)
 
-## 3 Optimizing cbench ##
+## 3 Explanation ##
+
+The "fast version" is faster because it creates only a message when necessary (for example, the first time)
+while the slow version creates a message every time. The following 
+two lines of code from the fast version are responsible for this behaviour. A message is only created when @flow mod is null:
 
 
+```
+   @flow_mod ||= create_flow_mod_binary(packet_in)
+    send_message dpid, @flow_mod
+```
 
+In contrast to that, the slow version creates a new message every time. Therefore it is much slower.
