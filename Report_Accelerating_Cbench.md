@@ -20,7 +20,15 @@ which made it print its output into a file:
 ruby-prof ./bin/trema r ./lib/cbench.rb &> output_of_ruby_prof_.txt
 ```
 
-The resulting file can be found at:
+In the second Terminal, I used the following command to simulate traffic:
+
+```
+./bin/cbench --port 6653 --switches 1 --loops 10 --ms-per-test 10000 --delay 1000 --throughput
+```
+
+After the simulation was over, I stopped cbench in the first terminal with ctrl+c.
+
+The resulting output-file can be found at:
 
 [Output-File](https://github.com/JensOetjen/handai-trema-learning-switch-JensOetjen/blob/master/output_of_ruby_prof_.txt)
 
