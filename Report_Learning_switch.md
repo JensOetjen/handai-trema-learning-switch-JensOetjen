@@ -155,7 +155,10 @@ root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# trema du
  
  The following (extremely ugly) diagram illustrates what is happening:
  
-![alt text][graphicfirst]
+<p align="center">
+  <img src="graphicfirst.jpg" width="550"/>
+  </p>
+
  
  It is obvious that an entry in the flow entry was not yet created. The controller floods the packet.
  However, after sending a packet back the same way. A flow entry is created. This can be seen in the following commands:
