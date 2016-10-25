@@ -70,8 +70,7 @@ def packet_in(datapath_id, packet_in)
     @fdbs.fetch(datapath_id).learn(packet_in.source_mac, packet_in.in_port)
     flow_mod_and_packet_out packet_in
   end
-
-```
+ ```
 
 The "def flow_mod_and_packet_out" function checks first if an entry can be found for the given destination mac-address.
 If an entry could be found, the message is sent to that port. If no entry could be found, the message is flooded instead (packet out).	
@@ -83,7 +82,7 @@ Moreover, an entry is the flow table is created (flow mod):
     flow_mod(packet_in, port_no) if port_no
     packet_out(packet_in, port_no || :flood)
   end
-    ```
+ ```
 	
 	The function responsible for creating a entry in the flow table is written in such a way that only entries that are indentical
 	are counted as belonging to the follow (the definition of "identical" in this context can be found in the slides of week 2). This
@@ -113,7 +112,7 @@ def packet_out(packet_in, port_no)
 	
 	Following I will my illustrate m explanations with an example. I used the default config file:
 	
-	  ```ruby
+```ruby
 def age
  vswitch('lsw1') { datapath_id 0x1 }
 vswitch('lsw2') { datapath_id 0x2 }
@@ -139,10 +138,10 @@ link 'lsw4', 'host4-1'
 link 'lsw4', 'host4-2'
 
   end
-    ```
+ ```
 	
 	In a first example I send a packet from host1-1 to host 1-2 and look at the stats and the flow afterwards. I used the following commands:
- ```	
+```	
 root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# ./bin/trema send_packets --source host1-1 --dest host1-2 --npackets 10
 root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# ./bin/trema show_stats host1-1
 Packets sent:
