@@ -89,15 +89,15 @@ are counted as belonging to the follow (the definition of "identical" in this co
 is realized by using "ExactMatch". The corresponding action to this is "SendOutPort": 
 	
 	  
-  ```ruby
+```ruby
   match: ExactMatch.new(packet_in),
       actions: SendOutPort.new(port_no)
-    ```
-	The function "packet out" is responsible for the actual sending of the message. It uses the incoming message and the "new port" as 
-	parameters and sends the message out from the new port. 
+ ```
+The function "packet out" is responsible for the actual sending of the message. It uses the incoming message and the "new port" as 
+parameters and sends the message out from the new port. 
 	
   
-  ```ruby
+ ```ruby
 def packet_out(packet_in, port_no)
     send_packet_out(
       packet_in.datapath_id,
@@ -105,12 +105,12 @@ def packet_out(packet_in, port_no)
       actions: SendOutPort.new(port_no)
     )
   end
-    ```
+ ```
 	
-	If an entry within the flow table already exists, the switch will will not send a "Packet in"-message to the controller.
+If an entry within the flow table already exists, the switch will will not send a "Packet in"-message to the controller.
 	
 	
-	Following I will my illustrate m explanations with an example. I used the default config file:
+Following I will my illustrate m explanations with an example. I used the default config file:
 	
 ```ruby
 def age
@@ -140,7 +140,8 @@ link 'lsw4', 'host4-2'
   end
  ```
 	
-	In a first example I send a packet from host1-1 to host 1-2 and look at the stats and the flow afterwards. I used the following commands:
+In a first example I send a packet from host1-1 to host 1-2 and look at the stats and the flow afterwards. I used the following commands:
+
 ```	
 root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# ./bin/trema send_packets --source host1-1 --dest host1-2 --npackets 10
 root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# ./bin/trema show_stats host1-1
