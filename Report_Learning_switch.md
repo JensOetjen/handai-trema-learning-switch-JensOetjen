@@ -156,7 +156,7 @@ root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# trema du
  The following (extremely ugly) diagram illustrates what is happening:
  
 <p align="center">
-  <img src="graphicfirst.jpg" width="550"/>
+  <img src="graphicfirst.jpg" width="650"/>
   </p>
 
  
@@ -177,6 +177,10 @@ Packets received:
   192.168.0.1 -> 192.168.0.2 = 10 packets
 root@Jens-Oetjen-PC:/home/jens/Desktop/lesson2/switch2/learning_switch# trema dump_flows lsw1cookie=0x0, duration=40.575s, table=0, n_packets=9, n_bytes=378, idle_age=40, priority=65535,udp,in_port=2,vlan_tci=0x0000,dl_src=fc:11:59:cf:cb:18,dl_dst=de:1d:ae:6d:d6:dd,nw_src=192.168.0.2,nw_dst=192.168.0.1,nw_tos=0,tp_src=0,tp_dst=0 actions=output:1
    ```
+ Illustration:
  
+ <p align="center">
+  <img src="graphicsecond.jpg" width="650"/>
+  </p>
 
 	
