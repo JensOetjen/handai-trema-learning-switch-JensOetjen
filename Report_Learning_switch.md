@@ -81,12 +81,12 @@ Moreover, an entry is the flow table is created (flow mod):
     port_no = @fdbs.fetch(packet_in.dpid).lookup(packet_in.destination_mac)
     flow_mod(packet_in, port_no) if port_no
     packet_out(packet_in, port_no || :flood)
-  end
+end
  ```
 	
-	The function responsible for creating a entry in the flow table is written in such a way that only entries that are indentical
-	are counted as belonging to the follow (the definition of "identical" in this context can be found in the slides of week 2). This
-	is realized by using "ExactMatch". The corresponding action to this is "SendOutPort": 
+The function responsible for creating a entry in the flow table is written in such a way that only entries that are indentical
+are counted as belonging to the follow (the definition of "identical" in this context can be found in the slides of week 2). This
+is realized by using "ExactMatch". The corresponding action to this is "SendOutPort": 
 	
 	  
   ```ruby
